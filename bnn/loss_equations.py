@@ -65,7 +65,7 @@ def bayesian_categorical_crossentropy(T, num_classes):
     # shape: (N, C)
     pred = pred_var[:, 0:num_classes]
     # shape: (N,)
-    undistorted_loss = K.categorical_crossentropy(pred, true, from_logits=True)
+    undistorted_loss = K.categorical_crossentropy(true, pred, from_logits=True)
     # shape: (T,)
     iterable = K.variable(np.ones(T))
     dist = distributions.Normal(loc=K.zeros_like(std), scale=std)
